@@ -23,6 +23,8 @@ function makeJSON(request: Request) {
             timezone: request.cf.timezone,
             latitude: request.cf.latitude,
             longitude: request.cf.longitude,
+            asNumber: request.cf.asn,
+            asOrganization: request.cf.asOrganization,
         },
     };
 }
@@ -31,8 +33,6 @@ export default {
     async fetch(request, env, ctx): Promise<Response> {
         const accept = request.headers.get('accept').split(',');
         const html = accept.some((x) => x.startsWith('text/html'));
-
-        console.log(request);
 
         let body;
         let contentType;
