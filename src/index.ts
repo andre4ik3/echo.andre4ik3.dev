@@ -13,7 +13,7 @@ function makeJSON(request: Request) {
         url: request.url,
         protocol: request.cf.httpProtocol,
         tlsVersion: request.cf.tlsVersion,
-        headers: request.headers.entries().filter(([name, _]) => !name.startsWith('cf-')),
+        headers: Object.fromEntries(Array.from(request.headers.entries())),
         geo: {
             ip: request.headers.get('CF-Connecting-IP'),
             rtt: request.cf.clientTcpRtt,
@@ -37,7 +37,7 @@ export default {
         let body;
         let contentType;
 
-        if (accept.some((x) => x.startsWith('text/html'))) {
+        if (accept.some((x) => x.startsWith('text/html')) && !request.url.endsWith(".json")) {
             body = await makeHTML(request);
             contentType = 'text/html';
         } else {
