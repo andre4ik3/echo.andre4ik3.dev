@@ -8,7 +8,7 @@
         "start": "wrangler dev",
         "build": "npm run handlebars",
         "cf-typegen": "wrangler types",
-        "handlebars": "mkdir generated && npm run compilehbs && npm run transpilehbs",
+        "handlebars": "mkdir -p generated && npm run compilehbs && npm run transpilehbs",
         "compilehbs": "handlebars -f generated/template.cjs src/template.html",
         "transpilehbs": "hbs-import-transpile generated/template.cjs > generated/template.mjs"
     },
