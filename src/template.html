@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <h1>Echo</h1>
+
+    <h2>Basic Info</h2>
+    <table>
+        <tr>
+            <td>URL</td>
+            <td>{{url}}</td>
+        </tr>
+        <tr>
+            <td>Method</td>
+            <td>{{method}}</td>
+        </tr>
+        <tr>
+            <td>Protocol</td>
+            <td>{{protocol}}</td>
+        </tr>
+        <tr>
+            <td>TLS Version</td>
+            <td>{{tlsVersion}}</td>
+        </tr>
+    </table>
+
+    <hr />
+    <h2>Headers</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Value</td>
+            </tr>
+        </thead>
+        {{#each headers}}
+        <tr>
+            <td>{{this.[0]}}</td>
+            <td>{{this.[1]}}</td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <hr />
+    <h2>Geolocation</h2>
+    <table>
+        <tr>
+            <td>IP Address</td>
+            <td>{{geo.ip}}</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>{{geo.country}}</td>
+        </tr>
+        <tr>
+            <td>Region</td>
+            <td>{{geo.region}}</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>{{geo.city}}</td>
+        </tr>
+        <tr>
+            <td>Timezone</td>
+            <td>{{geo.timezone}}</td>
+        </tr>
+        <tr>
+            <td>Latitude</td>
+            <td>{{geo.latitude}}</td>
+        </tr>
+        <tr>
+            <td>Longitude</td>
+            <td>{{geo.longitude}}</td>
+        </tr>
+        <tr>
+            <td>Round-Trip Time</td>
+            <td>{{geo.rtt}}</td>
+        </tr>
+    </table>
+
+    <hr />
+    <h2>Fingerprint</h2>
+    <noscript>
+        <p>JavaScript appears to be disabled.</p>
+    </noscript>
+
+    <table id="fingerprint"></table>
+</html>
