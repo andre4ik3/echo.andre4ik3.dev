@@ -75,6 +75,12 @@ export default {
             contentType = "application/json";
         }
 
-        return new Response(body, { headers: { "Content-Type": contentType } });
+        return new Response(body, {
+            headers: {
+                "Content-Type": contentType,
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "*",
+            },
+        });
     },
 } satisfies ExportedHandler<Env>;
